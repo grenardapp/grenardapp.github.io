@@ -8,33 +8,53 @@
     <style>
         :root { --pink: #FF85A1; --dark-bg: #121212; --card-bg: #1e1e1e; --text: #e0e0e0; }
         body { font-family: 'Inter', sans-serif; background-color: var(--dark-bg); color: var(--text); margin: 0; line-height: 1.6; }
+        
         header { padding: 80px 20px; text-align: center; background: radial-gradient(circle at top, #2c3e50 0%, var(--dark-bg) 100%); }
         .logo { width: 120px; border-radius: 25px; margin-bottom: 20px; border: 2px solid var(--pink); box-shadow: 0 0 15px rgba(255, 133, 161, 0.3); }
+        
         .container { max-width: 1100px; margin: auto; padding: 20px; }
+        .section-title { text-align: center; color: var(--pink); margin-top: 60px; margin-bottom: 30px; width: 100%; }
+        
         .badge-row { margin: 20px 0; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
         .badge { background: var(--pink); color: black; padding: 6px 16px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
-        .section-title { text-align: center; color: var(--pink); margin-top: 60px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .card { background: var(--card-bg); padding: 30px; border-radius: 20px; border: 1px solid #333; transition: 0.3s; }
-        .card:hover { border-color: var(--pink); transform: translateY(-5px); }
-        
-        /* Galerie de captures */
-        .screenshots { display: flex; gap: 15px; overflow-x: auto; padding: 20px; justify-content: flex-start; scroll-behavior: smooth; }
-        .screenshots::-webkit-scrollbar { height: 8px; }
-        .screenshots::-webkit-scrollbar-thumb { background: var(--pink); border-radius: 10px; }
+
+        /* Galerie de captures centrée */
+        .screenshots-container { display: flex; justify-content: center; width: 100%; }
+        .screenshots { display: flex; gap: 15px; overflow-x: auto; padding: 20px; scroll-behavior: smooth; max-width: 100%; }
         .screenshots img { height: 450px; border-radius: 20px; border: 2px solid #333; flex-shrink: 0; transition: 0.3s; }
         .screenshots img:hover { border-color: var(--pink); transform: scale(1.02); }
 
-        .subject-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin-top: 20px; }
-        .subject-item { background: #2a2a2a; padding: 10px; border-radius: 10px; text-align: center; border: 1px solid #444; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card { background: var(--card-bg); padding: 30px; border-radius: 20px; border: 1px solid #333; }
+
+        /* Matières en ligne de 4 */
+        .subject-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 15px; 
+            margin-top: 20px; 
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .subject-item { background: #2a2a2a; padding: 15px; border-radius: 12px; text-align: center; border: 1px solid #444; font-weight: bold; }
+
+        @media (max-width: 768px) {
+            .subject-grid { grid-template-columns: repeat(2, 1fr); }
+            .screenshots img { height: 350px; }
+        }
+
         .btn { display: inline-block; padding: 15px 30px; border-radius: 30px; font-weight: bold; text-decoration: none; margin: 10px; transition: 0.3s; }
         .btn-tiktok { background: white; color: black; }
         .btn-contact { background: transparent; color: var(--pink); border: 2px solid var(--pink); }
+        
         footer { text-align: center; padding: 60px 20px; border-top: 1px solid #333; margin-top: 80px; background: #0a0a0a; }
         .footer-links a { color: #888; text-decoration: none; margin: 0 15px; }
     </style>
 </head>
 <body>
+
 <header>
     <img src="icon.png" alt="Cervelet Logo" class="logo" onerror="this.src='https://via.placeholder.com/120/FF85A1/000000?text=Cervelet'">
     <h1 style="font-size: 3em; margin: 0;">Cervelet</h1>
@@ -47,12 +67,15 @@
 </header>
 
 <div class="container">
+    
     <h2 class="section-title">Aperçu de l'application</h2>
-    <div class="screenshots">
-        <img src="screen0.png" alt="Capture 0" onerror="this.style.display='none'">
-        <img src="screen1.png" alt="Capture 1" onerror="this.style.display='none'">
-        <img src="screen2.png" alt="Capture 2" onerror="this.style.display='none'">
-        <img src="screen3.png" alt="Capture 3" onerror="this.style.display='none'">
+    <div class="screenshots-container">
+        <div class="screenshots">
+            <img src="screen0.png" alt="Capture 0" onerror="this.style.display='none'">
+            <img src="screen1.png" alt="Capture 1" onerror="this.style.display='none'">
+            <img src="screen2.png" alt="Capture 2" onerror="this.style.display='none'">
+            <img src="screen3.png" alt="Capture 3" onerror="this.style.display='none'">
+        </div>
     </div>
 
     <div class="grid">
@@ -75,6 +98,7 @@
         <div class="subject-item">🌍 Géo</div>
         <div class="subject-item">🧪 Physique</div>
         <div class="subject-item">🌿 SVT</div>
+        <div class="subject-item">🎓 Brevet</div>
     </div>
 
     <div style="text-align: center; margin-top: 60px;">
@@ -83,13 +107,16 @@
         <a href="https://www.tiktok.com/@votre_compte" class="btn btn-tiktok"><i class="fab fa-tiktok"></i> TikTok</a>
         <a href="mailto:grenardapp@gmail.com" class="btn btn-contact"><i class="fas fa-envelope"></i> Contact Pro</a>
     </div>
+
 </div>
 
 <footer>
     <p>Développé par <strong>Grenard App</strong></p>
     <div class="footer-links">
         <a href="privacy.html">Confidentialité</a>
+        <a href="mailto:grenardapp@gmail.com">Contact</a>
     </div>
 </footer>
+
 </body>
 </html>
