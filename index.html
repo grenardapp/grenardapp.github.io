@@ -9,6 +9,7 @@
         :root { --pink: #FF85A1; --dark-bg: #0A0A0A; --card-bg: #161616; --text: #F5F5F5; }
         body { font-family: 'Inter', sans-serif; background-color: var(--dark-bg); color: var(--text); margin: 0; overflow-x: hidden; }
         
+        /* Hero Section */
         .hero { 
             display: flex; align-items: center; justify-content: space-between; 
             min-height: 85vh; padding: 0 10%; 
@@ -24,22 +25,27 @@
         .thumb.active { border-color: var(--pink); opacity: 1; }
 
         .container { max-width: 1100px; margin: auto; padding: 60px 20px; }
-        h1 { font-size: 4em; margin: 0; line-height: 1.1; }
+        h1 { font-size: 3.5em; margin: 0; line-height: 1.1; }
         .highlight { color: var(--pink); }
 
-        /* Section Features Descriptions */
+        /* Features */
         .feature-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px; }
         .f-item { background: var(--card-bg); padding: 30px; border-radius: 25px; border: 1px solid #222; }
         .f-item i { font-size: 2em; color: var(--pink); margin-bottom: 15px; display: block; }
         .f-item h3 { margin: 0 0 10px 0; color: #fff; }
         .f-item p { color: #aaa; font-size: 0.95em; line-height: 1.5; }
 
+        /* Classes Grid */
         .class-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 30px; }
-        .class-card { background: #111; padding: 20px; border-radius: 15px; border: 1px solid #222; text-align: center; }
-        .class-card h3 { font-size: 1.8em; margin: 0; color: var(--pink); }
+        .class-card { background: #111; padding: 25px; border-radius: 20px; border: 1px solid #222; text-align: center; transition: 0.3s; }
+        .class-card:hover { border-color: var(--pink); transform: translateY(-5px); }
+        .class-card h3 { font-size: 2em; margin: 0; color: var(--pink); }
+        .class-card p { margin: 5px 0 0; color: #666; font-size: 0.9em; }
 
+        /* Subjects Cloud */
         .subjects-cloud { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-        .sub-tag { background: #1a1a1a; padding: 10px 20px; border-radius: 50px; border: 1px solid #333; font-weight: bold; font-size: 0.9em; }
+        .sub-tag { background: #1a1a1a; padding: 12px 25px; border-radius: 50px; border: 1px solid #333; font-weight: bold; font-size: 0.95em; transition: 0.3s; cursor: default; }
+        .sub-tag:hover { border-color: var(--pink); color: var(--pink); }
 
         .btn-play { background: #000; color: white; padding: 15px 25px; border-radius: 15px; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; border: 2px solid #333; transition: 0.3s; font-weight: bold; }
         .btn-play:hover { border-color: var(--pink); transform: translateY(-5px); }
@@ -60,7 +66,10 @@
 
     <section class="hero">
         <div class="hero-text">
-            <img src="icon.png" alt="Cervelet Logo" style="width: 70px; border-radius: 18px; margin-bottom: 20px; border: 2px solid var(--pink);">
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                <img src="icon.png" alt="Cervelet Logo" style="width: 60px; border-radius: 15px; border: 2px solid var(--pink);">
+                <h2 style="margin: 0; font-size: 2em; font-weight: 900;">Cervelet</h2>
+            </div>
             <h1>Cartonne tes contrôles avec <span class="highlight">Cervelet</span></h1>
             <p style="font-size: 1.2em; color: #ddd; max-width: 550px; margin: 20px 0;">
                 L'application de quiz ultime pour tous les collégiens. Rejoins notre <b>petit cerveau rose</b> et transforme tes révisions en pur plaisir !
@@ -93,23 +102,42 @@
     </section>
 
     <div class="container">
-        <h2 style="color: var(--pink); text-transform: uppercase; font-size: 1.2em; letter-spacing: 2px;">Pourquoi utiliser Cervelet ?</h2>
+        <h2 style="color: var(--pink); text-transform: uppercase; font-size: 1em; letter-spacing: 2px;">Pourquoi utiliser Cervelet ?</h2>
         <div class="feature-box">
             <div class="f-item">
                 <i class="fas fa-heart"></i>
                 <h3>Le Système de Survie</h3>
-                <p>Tu apprends en faisant des erreurs, c'est fait pour ça ! Mais attention : ton stock de cœurs diminue à chaque faute. Regarde une vidéo pour repartir au combat.</p>
+                <p>Tu apprends en faisant des erreurs ! Mais attention : ton stock de cœurs diminue à chaque faute. Regarde une vidéo pour repartir au combat.</p>
             </div>
             <div class="f-item">
                 <i class="fas fa-fire"></i>
                 <h3>Zéro Stress</h3>
-                <p>On oublie les leçons compliquées et on passe à l'action. Des quiz rapides et efficaces pour préparer tes DS ou le Brevet n'importe où.</p>
+                <p>Des quiz rapides et efficaces pour préparer tes DS ou le Brevet n'importe où, sans le stress des cahiers lourds.</p>
             </div>
             <div class="f-item">
                 <i class="fas fa-trophy"></i>
-                <h3>Compétition Mondiale</h3>
-                <p>Gagne de l'XP et mesure-toi aux élèves de toute la France grâce au Scoreboard mondial. Deviens imbattable dans tes matières préférées.</p>
+                <h3>Compétition</h3>
+                <p>Gagne de l'XP et mesure-toi aux élèves de toute la France grâce au Scoreboard mondial en temps réel.</p>
             </div>
+        </div>
+
+        <h2 style="color: var(--pink); text-transform: uppercase; font-size: 1em; letter-spacing: 2px; margin-top: 80px;">Révise ton année</h2>
+        <div class="class-grid">
+            <div class="class-card"><h3>6e</h3><p>Bases</p></div>
+            <div class="class-card"><h3>5e</h3><p>Cycle 4</p></div>
+            <div class="class-card"><h3>4e</h3><p>Cycle 4</p></div>
+            <div class="class-card"><h3>3e</h3><p>Brevet</p></div>
+        </div>
+
+        <h2 style="color: var(--pink); text-transform: uppercase; font-size: 1em; letter-spacing: 2px; margin-top: 80px;">Matières au programme</h2>
+        <div class="subjects-cloud">
+            <div class="sub-tag">📐 Mathématiques</div>
+            <div class="sub-tag">🇫🇷 Français</div>
+            <div class="sub-tag">🇬🇧 Anglais</div>
+            <div class="sub-tag">📜 Histoire</div>
+            <div class="sub-tag">🌍 Géographie</div>
+            <div class="sub-tag">🧪 Physique-Chimie</div>
+            <div class="sub-tag">🌿 SVT</div>
         </div>
 
         <div class="social-card">
