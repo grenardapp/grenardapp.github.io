@@ -1,5 +1,4 @@
-User-agent: *
-Allow: /
-
 User-agent: Google-adstxt
-Allow: /
+Disallow:
+User-agent: Mediapartners-Google
+Disallow:
